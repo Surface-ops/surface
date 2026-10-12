@@ -1,0 +1,21 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "name": "me.grok.nova-otter-delta-cloud/surface",
+  "title": "Surface \u2014 preflight a URL before your agent opens it",
+  "version": "1.0.1",
+  "description": "Unwrap t.co/bit.ly/lnkd.in/youtu.be links; returns next: fetch|skip. Never returns page body.",
+  "websiteUrl": "https://nova-otter-delta-cloud.grok.me",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://nova-otter-delta-cloud.grok.me/mcp",
+      "supportedProtocolVersions": [
+        "2025-03-26"
+      ]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Surface-ops/surface",
+    "source": "github"
+  }
+}

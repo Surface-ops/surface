@@ -1,0 +1,7 @@
+# Smithery metadata. Surface is a remote Streamable-HTTP MCP server; there is nothing to build.
+# Canonical endpoint: https://nova-otter-delta-cloud.grok.me/mcp
+startCommand:
+  type: http
+  configSchema:
+    type: object
+    properties: {}

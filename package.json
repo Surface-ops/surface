@@ -1,0 +1,25 @@
+{
+  "name": "surface-mcp",
+  "version": "1.0.1",
+  "description": "Surface preflight_url: unwrap a short or unknown URL before an agent fetches it (next: fetch|skip). Remote MCP client, local stdio bridge and CLI.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Canada Site Ops <canada.site.ops@gmail.com>",
+  "homepage": "https://nova-otter-delta-cloud.grok.me",
+  "repository": { "type": "git", "url": "git+https://github.com/Surface-ops/surface.git" },
+  "bugs": { "url": "https://github.com/Surface-ops/surface/issues", "email": "canada.site.ops@gmail.com" },
+  "mcpName": "me.grok.nova-otter-delta-cloud/surface",
+  "engines": { "node": ">=18" },
+  "main": "src/client.js",
+  "exports": { ".": "./src/client.js" },
+  "bin": {
+    "surface-mcp": "bin/surface-mcp.js",
+    "surface-preflight": "bin/surface-preflight.js"
+  },
+  "files": ["src", "bin", "README.md", "LICENSE", "PRIVACY.md"],
+  "scripts": {
+    "test": "node --test test/",
+    "start": "node bin/surface-mcp.js"
+  },
+  "keywords": ["mcp", "model-context-protocol", "preflight", "url", "short-link", "agents", "unshorten"]
+}
