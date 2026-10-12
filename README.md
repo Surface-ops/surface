@@ -83,6 +83,14 @@ Response fields: `next` (`fetch` | `skip`), `verdict` (`fetch` | `dead` | `wall`
 
 Surface charges per call: preflight is $0.25 per 1,000 calls (REST or MCP `tools/call`). `initialize` and `tools/list` are not tool calls. Details: https://nova-otter-delta-cloud.grok.me/docs.
 
+## Directory listings
+
+- Official MCP Registry: `me.grok.nova-otter-delta-cloud/surface`
+- Smithery: https://smithery.ai/server/@Surface-ops/surface
+- CuratedMCP: https://curatedmcp.com
+- AllMCPs: https://allmcps.com/mcp/surface
+- MCPizy: https://mcpizy.com/directory/surface
+
 ## Operator, privacy, license
 
 - **Operator:** Canada Site Ops (canada.site.ops@gmail.com)
