@@ -86,8 +86,8 @@ Surface charges per call: preflight is $0.25 per 1,000 calls (REST or MCP `tools
 ## Directory listings
 
 - Official MCP Registry: `me.grok.nova-otter-delta-cloud/surface`
-- Smithery: https://smithery.ai/server/@Surface-ops/surface
-- CuratedMCP: https://curatedmcp.com
+- Smithery: https://smithery.ai/servers/canada-site-ops/surface
+- CuratedMCP: https://www.curatedmcp.com/marketplace/surface
 - AllMCPs: https://allmcps.com/mcp/surface
 - MCPizy: https://mcpizy.com/directory/surface
 
