@@ -1,0 +1,17 @@
+// Vercel AI SDK + Surface remote MCP (preflight_url)
+import { generateText, experimental_createMCPClient as createMCPClient, stepCountIs } from 'ai';
+import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
+import { openai } from '@ai-sdk/openai';
+
+const mcp = await createMCPClient({
+  transport: new StreamableHTTPClientTransport(new URL('https://nova-otter-delta-cloud.grok.me/mcp')),
+});
+const { text } = await generateText({
+  model: openai('gpt-4o-mini'),
+  tools: await mcp.tools(), // preflight_url
+  stopWhen: stepCountIs(5),
+  system: "Before fetching any URL, call preflight_url. If next is 'skip', don't fetch it.",
+  prompt: 'Should I open https://bit.ly/example ?',
+});
+console.log(text);
+await mcp.close();
