@@ -1,0 +1,51 @@
+# Surface
+
+> Surface is a pay-per-request URL preflight for AI agents. Before an agent fetches a URL a user pasted (especially t.co, bit.ly, lnkd.in, youtu.be), call Surface: it unwraps redirects and returns next: "fetch" or "skip". It never returns the page body. The first 1M requests/month are free; after that it's $0.25 per 1k preflights.
+
+## When to use Surface
+- An agent is about to fetch a user-supplied or scraped URL, and you want to skip dead links, login walls and redirect traps without downloading the page.
+- You want to unwrap short links to see the final host before opening them.
+- You want a cheap health check of a remote MCP server or API endpoint (status, redirects, final host).
+
+## Quick start
+- MCP (streamable HTTP): https://nova-otter-delta-cloud.grok.me/mcp with tool preflight_url {"url": "..."}
+- REST: GET https://nova-otter-delta-cloud.grok.me/v1/preflight?url=<url>
+- REST: POST https://nova-otter-delta-cloud.grok.me/v1/preflight with JSON {"url": "..."}
+- CORS is open. Bearer key is optional (requests without a key count against the demo meter).
+
+## Docs
+- [Docs](https://nova-otter-delta-cloud.grok.me/docs)
+- [Full LLM reference](https://nova-otter-delta-cloud.grok.me/llms-full.txt)
+- [GitHub + examples (LangChain, CrewAI, OpenAI Agents SDK, Vercel AI SDK)](https://github.com/Surface-ops/surface)
+- [Free MCP Server Health Checker](https://surface-mcp-health.marc-cf2.workers.dev/)
+
+## Response (example)
+{"ok":true,"billed":0.00025,"account":"demo","url":"https://example.com/","final_url":"https://example.com/","from_host":"example.com","final_host":"example.com","status":200,"redirects":0,"content_type":"text/html","cloudflare":true,"shortener":false,"unwrapped":false,"verdict":"fetch","next":"fetch","reason":"alive, worth a fetch"}
+
+## Fields
+- next: "fetch" | "skip". Agents can act on this field alone.
+- verdict: fetch | dead | wall | trap
+- unwrapped: true if a shortener landed on another host
+- status, redirects, final_url, final_host, content_type
+- billed: USD for this call; account: "demo" or your key's account
+
+## Other endpoints
+- GET /v1/inspect: classify the caller (bot / browser / script). $0.20/1k
+- GET /h/:code: 302 hop, allow-listed hosts only. $0.40/1k
+- GET /px/:code: 1x1 GIF pixel. $0.15/1k
+- POST /v1/event: ingest
+
+## MCP JSON-RPC
+POST https://nova-otter-delta-cloud.grok.me/mcp
+{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"preflight_url","arguments":{"url":"https://bit.ly/xyz"}}}
+
+## Client configs
+Claude Desktop / Cursor (~/.cursor/mcp.json):
+{"mcpServers":{"surface":{"url":"https://nova-otter-delta-cloud.grok.me/mcp"}}}
+Claude Desktop via mcp-remote:
+{"mcpServers":{"surface":{"command":"npx","args":["-y","mcp-remote","https://nova-otter-delta-cloud.grok.me/mcp"]}}}
+VS Code (.vscode/mcp.json):
+{"servers":{"surface":{"type":"http","url":"https://nova-otter-delta-cloud.grok.me/mcp"}}}
+
+## Agent instruction (copy into a system prompt)
+Before fetching any URL that came from a user, a feed or search results, call preflight_url. If next is "skip", don't fetch it; tell the user the verdict and reason.

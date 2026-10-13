@@ -1,0 +1,20 @@
+# Surface
+
+> Surface is a pay-per-request URL preflight for AI agents. Before an agent fetches a URL a user pasted (especially t.co, bit.ly, lnkd.in, youtu.be), call Surface: it unwraps redirects and returns next: "fetch" or "skip". It never returns the page body. The first 1M requests/month are free; after that it's $0.25 per 1k preflights.
+
+## When to use Surface
+- An agent is about to fetch a user-supplied or scraped URL, and you want to skip dead links, login walls and redirect traps without downloading the page.
+- You want to unwrap short links to see the final host before opening them.
+- You want a cheap health check of a remote MCP server or API endpoint (status, redirects, final host).
+
+## Quick start
+- MCP (streamable HTTP): https://nova-otter-delta-cloud.grok.me/mcp with tool preflight_url {"url": "..."}
+- REST: GET https://nova-otter-delta-cloud.grok.me/v1/preflight?url=<url>
+- REST: POST https://nova-otter-delta-cloud.grok.me/v1/preflight with JSON {"url": "..."}
+- CORS is open. Bearer key is optional (requests without a key count against the demo meter).
+
+## Docs
+- [Docs](https://nova-otter-delta-cloud.grok.me/docs)
+- [Full LLM reference](https://nova-otter-delta-cloud.grok.me/llms-full.txt)
+- [GitHub + examples (LangChain, CrewAI, OpenAI Agents SDK, Vercel AI SDK)](https://github.com/Surface-ops/surface)
+- [Free MCP Server Health Checker](https://surface-mcp-health.marc-cf2.workers.dev/)
