@@ -77,6 +77,8 @@ curl -s https://nova-otter-delta-cloud.grok.me/mcp \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"preflight_url","arguments":{"url":"https://bit.ly/example"}}}'
 ```
 
+> **Python tip:** send a normal `User-Agent` header (for example `User-Agent: my-agent/1.0`). Python's built-in `urllib` default agent can be blocked at the edge; `requests`, `httpx` and `curl` work as-is.
+
 Response fields: `next` (`fetch` | `skip`), `verdict` (`fetch` | `dead` | `wall` | `trap`), `unwrapped`, `from_host`, `final_host`, `final_url`. Private hosts and odd ports are refused.
 
 ## Pricing
