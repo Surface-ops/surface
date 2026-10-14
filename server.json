@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "me.grok.nova-otter-delta-cloud/surface",
+  "description": "Preflight a short or unknown URL before an agent fetches it: next fetch|skip.",
+  "version": "1.0.1",
+  "websiteUrl": "https://nova-otter-delta-cloud.grok.me",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://nova-otter-delta-cloud.grok.me/mcp"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Surface-ops/surface",
+    "source": "github"
+  }
+}

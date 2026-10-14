@@ -1,6 +1,6 @@
 # Surface
 
-> Surface is a pay-per-request URL preflight for AI agents. Before an agent fetches a URL a user pasted (especially t.co, bit.ly, lnkd.in, youtu.be), call Surface: it unwraps redirects and returns next: "fetch" or "skip". It never returns the page body. The first 1M requests/month are free; after that it's $0.25 per 1k preflights.
+> Surface is a pay-per-request URL preflight for AI agents. Before an agent fetches a URL a user pasted (especially t.co, bit.ly, lnkd.in, youtu.be), call Surface: it unwraps redirects and returns next: "fetch" or "skip". It never returns the page body. The first 1M requests/month are free; after that it's $0.25 USD per 1k preflights (Hop $0.40, Pixel $0.15, Inspect $0.20 per 1k).
 
 ## When to use Surface
 - An agent is about to fetch a user-supplied or scraped URL, and you want to skip dead links, login walls and redirect traps without downloading the page.

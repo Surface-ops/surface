@@ -53,7 +53,7 @@ Or without cloning:
 
 Environment:
 
-- `SURFACE_API_KEY`: optional. This is a `surf_live_…` key, sent as `Authorization: Bearer …`. Without a key, calls bill the shared demo meter.
+- `SURFACE_API_KEY`: optional. This is a `surf_live_…` key (the public demo key uses `surf_demo_…`), sent as `Authorization: Bearer …`. Without a key, calls bill the shared demo meter.
 - `SURFACE_BASE_URL`: optional. It defaults to `https://nova-otter-delta-cloud.grok.me`.
 
 ## Use as a library
@@ -81,7 +81,9 @@ Response fields: `next` (`fetch` | `skip`), `verdict` (`fetch` | `dead` | `wall`
 
 ## Pricing
 
-Surface charges per call: preflight is $0.25 per 1,000 calls (REST or MCP `tools/call`). `initialize` and `tools/list` are not tool calls. Details: https://nova-otter-delta-cloud.grok.me/docs.
+**Free: the first 1,000,000 requests every month. No card needed.**
+
+After that, Surface charges per call, in USD per 1,000 calls: Preflight $0.25 (REST or MCP `tools/call`), Hop $0.40, Pixel $0.15, Inspect $0.20. `POST /v1/event` is ingest and is not billed. A flat $50 CAD/month plan is also available (see /billing). `initialize` and `tools/list` are not tool calls. Details: https://nova-otter-delta-cloud.grok.me/docs.
 
 ## Directory listings
 
