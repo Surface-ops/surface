@@ -92,6 +92,7 @@ After that, Surface charges per call, in USD per 1,000 calls: Preflight $0.25 (R
 - CuratedMCP: https://www.curatedmcp.com/marketplace/surface
 - AllMCPs: https://allmcps.com/mcp/surface [![AllMCPs Verified](https://allmcps.com/api/badge/surface)](https://allmcps.com/mcp/surface?verify=2223556a-bb4d-4dad-b124-7aac3c7f8adc)
 - MCPizy: https://mcpizy.com/directory/surface
+- MCPRush: https://mcprush.com/grok/surface-mcp
 
 ## Operator, privacy, license
 
