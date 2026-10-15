@@ -93,6 +93,7 @@ After that, Surface charges per call, in USD per 1,000 calls: Preflight $0.25 (R
 - Smithery: https://smithery.ai/servers/canada-site-ops/surface
 - CuratedMCP: https://www.curatedmcp.com/marketplace/surface
 - AllMCPs: https://allmcps.com/mcp/surface [![AllMCPs Verified](https://allmcps.com/api/badge/surface)](https://allmcps.com/mcp/surface?verify=2223556a-bb4d-4dad-b124-7aac3c7f8adc)
+- AI Agents Listing: [![Surface on AI Agents Listing](https://aiagentslisting.com/surface/badge.svg?claim=d880a8b8a07ceb5325908f9fccbb64bf)](https://aiagentslisting.com/mcp/surface)
 - MCPizy: https://mcpizy.com/directory/surface
 - MCPRush: https://mcprush.com/grok/surface-mcp
 
