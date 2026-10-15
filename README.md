@@ -22,15 +22,27 @@ This repo contains:
 
 ## Quick start (remote, no install)
 
+**Get a free API key (optional, 10 seconds, no card):**
+
+```bash
+curl -s -X POST https://nova-otter-delta-cloud.grok.me/v1/keys
+# -> {"key":"surf_..."}
+export SURFACE_KEY=surf_...
+```
+
+Or use the sign-up page: https://nova-otter-delta-cloud.grok.me/start#key. Send the key as `Authorization: Bearer $SURFACE_KEY` (or `X-Surface-Key: $SURFACE_KEY`). Check your usage with `GET /v1/usage`. Keyless calls still work, but they are limited to 60 per minute and include a `get_key` note.
+
 **Claude Code**
 ```bash
-claude mcp add --transport http surface https://nova-otter-delta-cloud.grok.me/mcp
+claude mcp add --transport http surface https://nova-otter-delta-cloud.grok.me/mcp --header "Authorization: Bearer $SURFACE_KEY"
 ```
+Without a key, drop the `--header` part.
 
 **Cursor** (`.cursor/mcp.json`)
 ```json
-{ "mcpServers": { "surface": { "url": "https://nova-otter-delta-cloud.grok.me/mcp" } } }
+{ "mcpServers": { "surface": { "url": "https://nova-otter-delta-cloud.grok.me/mcp", "headers": { "Authorization": "Bearer surf_..." } } } }
 ```
+The `headers` block is optional.
 
 See [`examples/mcp-clients.md`](examples/mcp-clients.md) for VS Code, Codex and Claude Desktop.
 
@@ -53,7 +65,7 @@ Or without cloning:
 
 Environment:
 
-- `SURFACE_API_KEY`: optional. This is a `surf_live_…` key (the public demo key uses `surf_demo_…`), sent as `Authorization: Bearer …`. Without a key, calls bill the shared demo meter.
+- `SURFACE_KEY`: optional. Your free `surf_…` key from `POST /v1/keys` or /start#key, sent as `Authorization: Bearer …`. `SURFACE_API_KEY` is still accepted. Without a key, calls use the shared keyless tier (60 per minute).
 - `SURFACE_BASE_URL`: optional. It defaults to `https://nova-otter-delta-cloud.grok.me`.
 
 ## Use as a library
@@ -68,14 +80,24 @@ if (shouldFetch(v)) await fetch(v.final_url);
 ## Raw HTTP (30 seconds)
 
 ```bash
-# REST
-curl -s "https://nova-otter-delta-cloud.grok.me/v1/preflight?url=https://bit.ly/example"
+# 1. Get a free key (optional, no card)
+export SURFACE_KEY=$(curl -s -X POST https://nova-otter-delta-cloud.grok.me/v1/keys | jq -r .key)
 
-# MCP
+# 2. REST
+curl -s "https://nova-otter-delta-cloud.grok.me/v1/preflight?url=https://bit.ly/example" \
+  -H "Authorization: Bearer $SURFACE_KEY"
+
+# 3. MCP
 curl -s https://nova-otter-delta-cloud.grok.me/mcp \
+  -H "Authorization: Bearer $SURFACE_KEY" \
   -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"preflight_url","arguments":{"url":"https://bit.ly/example"}}}'
+
+# Your usage
+curl -s https://nova-otter-delta-cloud.grok.me/v1/usage -H "Authorization: Bearer $SURFACE_KEY"
 ```
+
+The header is optional: leave it out and calls still work, limited to 60 per minute, with a `get_key` note in the response.
 
 > **Python tip:** send a normal `User-Agent` header (for example `User-Agent: my-agent/1.0`). Python's built-in `urllib` default agent can be blocked at the edge; `requests`, `httpx` and `curl` work as-is.
 
