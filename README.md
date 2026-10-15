@@ -96,6 +96,7 @@ After that, Surface charges per call, in USD per 1,000 calls: Preflight $0.25 (R
 - AI Agents Listing: [![Surface on AI Agents Listing](https://aiagentslisting.com/surface/badge.svg?claim=d880a8b8a07ceb5325908f9fccbb64bf)](https://aiagentslisting.com/mcp/surface)
 - MCPizy: https://mcpizy.com/directory/surface
 - MCPRush: https://mcprush.com/grok/surface-mcp
+- awesome-remote-mcp-servers: [punkpeye/awesome-remote-mcp-servers](https://github.com/punkpeye/awesome-remote-mcp-servers)
 
 ## Operator, privacy, license
 
