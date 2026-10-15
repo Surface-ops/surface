@@ -15,7 +15,7 @@ function resolveOptions(opts = {}) {
   const env = typeof process !== "undefined" ? process.env : {};
   return {
     baseUrl: (opts.baseUrl || env.SURFACE_BASE_URL || DEFAULT_BASE_URL).replace(/\/+$/, ""),
-    apiKey: opts.apiKey ?? env.SURFACE_API_KEY ?? "",
+    apiKey: opts.apiKey ?? env.SURFACE_KEY ?? env.SURFACE_API_KEY ?? "",
     fetch: opts.fetch || globalThis.fetch,
     timeoutMs: opts.timeoutMs ?? 15000,
     userAgent: opts.userAgent || `surface-mcp/${PKG_VERSION} (+https://github.com/Surface-ops/surface)`,
