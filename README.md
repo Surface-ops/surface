@@ -119,6 +119,7 @@ After that, Surface charges per call, in USD per 1,000 calls: Preflight $0.25 (R
 - MCPizy: https://mcpizy.com/directory/surface
 - MCPRush: https://mcprush.com/grok/surface-mcp
 - awesome-remote-mcp-servers: [punkpeye/awesome-remote-mcp-servers](https://github.com/punkpeye/awesome-remote-mcp-servers)
+- ToolSDK MCP Registry: [toolsdk-ai/toolsdk-mcp-registry](https://github.com/toolsdk-ai/toolsdk-mcp-registry) (`@toolsdk-remote/surface-preflight`)
 
 ## Operator, privacy, license
 
