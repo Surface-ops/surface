@@ -1,5 +1,6 @@
 // Gate an agent's fetch() behind Surface preflight.
 //   node examples/node/safe-fetch.js https://bit.ly/example
+//   Optional: export SURFACE_KEY=surf_... (free: POST /v1/keys). Read by src/client.js and sent as a Bearer header.
 import { preflight, shouldFetch } from "../../src/client.js";
 
 export async function safeFetch(url, init) {
