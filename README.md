@@ -1,5 +1,7 @@
 # Surface — preflight a URL before your agent opens it
 
+[![links checked | Surface](https://nova-otter-delta-cloud.grok.me/badge/surface.svg)](https://nova-otter-delta-cloud.grok.me)
+
 [![AllMCPs Verified](https://allmcps.com/api/badge/surface?style=shield)](https://allmcps.com/mcp/surface)
 
 Surface is a remote MCP server and HTTP API. It unwraps short or unknown links (t.co, bit.ly, lnkd.in, youtu.be) and tells your agent whether to open them: `next: "fetch"` or `next: "skip"`. **It never returns the page body.**
