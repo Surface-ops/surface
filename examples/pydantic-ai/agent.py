@@ -1,9 +1,11 @@
 """Pydantic AI agent with Surface preflight_url as a 'check URL before fetch' tool (via MCP)."""
 import asyncio
+import os
 from pydantic_ai import Agent
 from pydantic_ai.mcp import MCPServerStreamableHTTP
 
-surface = MCPServerStreamableHTTP("https://nova-otter-delta-cloud.grok.me/mcp")
+HEADERS = {"Authorization": f"Bearer {os.environ['SURFACE_KEY']}"} if os.environ.get("SURFACE_KEY") else {}  # optional free key: POST /v1/keys
+surface = MCPServerStreamableHTTP("https://nova-otter-delta-cloud.grok.me/mcp", headers=HEADERS)
 
 agent = Agent(
     "openai:gpt-4o-mini",
