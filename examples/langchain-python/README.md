@@ -5,4 +5,4 @@ Gives your agent a **check URL before fetch** tool: Surface's remote MCP server 
 ```bash
 pip install -r requirements.txt && OPENAI_API_KEY=... python agent.py
 ```
-Bring your own OpenAI key. Surface needs no key (requests without one use the demo meter). Docs: https://nova-otter-delta-cloud.grok.me/docs
+Bring your own OpenAI key. Surface works without a key (60 calls per minute). For your own usage page and no rate cap, get a free key first: `export SURFACE_KEY=$(curl -s -X POST https://nova-otter-delta-cloud.grok.me/v1/keys | jq -r .key)` or use https://nova-otter-delta-cloud.grok.me/start#key. The example sends it as `Authorization: Bearer` when set. Docs: https://nova-otter-delta-cloud.grok.me/docs
