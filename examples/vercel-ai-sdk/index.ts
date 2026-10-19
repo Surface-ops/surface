@@ -3,8 +3,12 @@ import { generateText, experimental_createMCPClient as createMCPClient, stepCoun
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import { openai } from '@ai-sdk/openai';
 
+// Optional free key: POST /v1/keys, then export SURFACE_KEY=surf_...
+const key = process.env.SURFACE_KEY;
 const mcp = await createMCPClient({
-  transport: new StreamableHTTPClientTransport(new URL('https://nova-otter-delta-cloud.grok.me/mcp')),
+  transport: new StreamableHTTPClientTransport(new URL('https://nova-otter-delta-cloud.grok.me/mcp'), {
+    requestInit: key ? { headers: { Authorization: `Bearer ${key}` } } : undefined,
+  }),
 });
 const { text } = await generateText({
   model: openai('gpt-4o-mini'),
