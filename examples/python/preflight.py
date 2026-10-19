@@ -4,7 +4,9 @@
     python3 preflight.py https://bit.ly/example          # plain HTTP
     python3 preflight.py https://bit.ly/example --mcp    # remote MCP tools/call
 
-Env: SURFACE_API_KEY (optional, bills your meter), SURFACE_BASE_URL.
+Env: SURFACE_KEY (optional; get a free key with `curl -s -X POST https://nova-otter-delta-cloud.grok.me/v1/keys`
+or at https://nova-otter-delta-cloud.grok.me/start#key), SURFACE_BASE_URL.
+Without a key, calls still work but are limited to 60 per minute.
 """
 import json
 import os
@@ -13,7 +15,7 @@ import urllib.parse
 import urllib.request
 
 BASE = os.environ.get("SURFACE_BASE_URL", "https://nova-otter-delta-cloud.grok.me").rstrip("/")
-KEY = os.environ.get("SURFACE_API_KEY", "")
+KEY = os.environ.get("SURFACE_KEY") or os.environ.get("SURFACE_API_KEY", "")
 UA = "surface-mcp-example-python/1.0 (+https://github.com/Surface-ops/surface)"
 
 
