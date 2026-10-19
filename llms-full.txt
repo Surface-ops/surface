@@ -8,10 +8,12 @@
 - You want a cheap health check of a remote MCP server or API endpoint (status, redirects, final host).
 
 ## Quick start
+- Optional free API key (no card): POST https://nova-otter-delta-cloud.grok.me/v1/keys returns {"key":"surf_..."}, or sign up at https://nova-otter-delta-cloud.grok.me/start#key
+- Send it as Authorization: Bearer surf_... (or X-Surface-Key: surf_...). Usage: GET https://nova-otter-delta-cloud.grok.me/v1/usage
 - MCP (streamable HTTP): https://nova-otter-delta-cloud.grok.me/mcp with tool preflight_url {"url": "..."}
 - REST: GET https://nova-otter-delta-cloud.grok.me/v1/preflight?url=<url>
 - REST: POST https://nova-otter-delta-cloud.grok.me/v1/preflight with JSON {"url": "..."}
-- CORS is open. Bearer key is optional (requests without a key count against the demo meter).
+- CORS is open. The key is optional: keyless calls still work, limited to 60 per minute, and include a get_key note.
 
 ## Docs
 - [Docs](https://nova-otter-delta-cloud.grok.me/docs)
@@ -27,7 +29,7 @@
 - verdict: fetch | dead | wall | trap
 - unwrapped: true if a shortener landed on another host
 - status, redirects, final_url, final_host, content_type
-- billed: USD for this call (0 while inside the free 1M/month); free_remaining: free requests left this month; account: "demo" or your key's account
+- billed: USD for this call (0 while inside the free 1M/month); free_remaining: free requests left this month; account: "demo" or your key's account; get_key: present on keyless calls, says how to get a free key
 
 ## Other endpoints
 - GET /v1/inspect: classify the caller (bot / browser / script). $0.20 USD/1k
@@ -41,7 +43,7 @@ POST https://nova-otter-delta-cloud.grok.me/mcp
 
 ## Client configs
 Claude Desktop / Cursor (~/.cursor/mcp.json):
-{"mcpServers":{"surface":{"url":"https://nova-otter-delta-cloud.grok.me/mcp"}}}
+{"mcpServers":{"surface":{"url":"https://nova-otter-delta-cloud.grok.me/mcp","headers":{"Authorization":"Bearer surf_..."}}}}  (headers optional)
 Claude Desktop via mcp-remote:
 {"mcpServers":{"surface":{"command":"npx","args":["-y","mcp-remote","https://nova-otter-delta-cloud.grok.me/mcp"]}}}
 VS Code (.vscode/mcp.json):
