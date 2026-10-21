@@ -1,0 +1,116 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Surface",
+        "version": "1.0.0",
+        "description": "Unwrap a short link and decide fetch or skip. Does not return the page body."
+    },
+    "servers": [
+        {
+            "url": "https://nova-otter-delta-cloud.grok.me"
+        }
+    ],
+    "paths": {
+        "/v1/preflight": {
+            "get": {
+                "operationId": "preflightGet",
+                "summary": "Preflight a URL",
+                "parameters": [
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Verdict. next is fetch or skip."
+                    }
+                }
+            },
+            "post": {
+                "operationId": "preflightPost",
+                "summary": "Preflight a URL",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "url"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Verdict. next is fetch or skip."
+                    }
+                }
+            }
+        },
+        "/h/{code}": {
+            "get": {
+                "operationId": "hop",
+                "summary": "Follow an allow-listed hop",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "302": {
+                        "description": "Redirect"
+                    }
+                }
+            }
+        },
+        "/px/{code}": {
+            "get": {
+                "operationId": "pixel",
+                "summary": "1x1 pixel",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "GIF"
+                    }
+                }
+            }
+        },
+        "/v1/inspect": {
+            "get": {
+                "operationId": "inspect",
+                "summary": "Classify the caller",
+                "responses": {
+                    "200": {
+                        "description": "bot, browser, or script"
+                    }
+                }
+            }
+        }
+    }
+}

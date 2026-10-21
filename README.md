@@ -14,6 +14,8 @@ This repo contains:
 | `src/stdio-server.js` + `bin/surface-mcp.js` | Local **stdio MCP server** exposing `preflight_url`, which forwards to the remote endpoint (for clients that only run commands) |
 | `bin/surface-preflight.js` | CLI: `surface-preflight <url>` prints `fetch`/`skip` (exit 0 = fetch, 2 = skip) |
 | `examples/` | Python (stdlib only) and Node examples, plus client configs |
+| `action.yml` | GitHub Action: preflight every link in your docs (see `examples/github-action/`) |
+| `openapi.json`, `discovery/` | OpenAPI spec, A2A agent card, ai-plugin.json |
 | `test/` | Offline tests against a local mock. They never hit the live meter. |
 | `mcp-server.json`, `server-card.json`, `.well-known/mcp/server-card.json`, `smithery.yaml` | Registry and discovery metadata |
 

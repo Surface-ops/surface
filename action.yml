@@ -1,0 +1,31 @@
+name: "Surface link preflight"
+description: "Check every external link in your Markdown/HTML with Surface. Fails on links Surface says to skip. Free tier: 1M requests/month."
+author: "Surface (Canada Site Ops)"
+branding: { icon: "link", color: "blue" }
+inputs:
+  paths: { description: "Glob of files to scan", default: "**/*.md" }
+  key: { description: "Optional free Surface key (POST /v1/keys)", required: false, default: "" }
+  fail-on-skip: { description: "Fail the job if any link gets next=skip", default: "true" }
+  base-url: { description: "Surface base URL", default: "https://nova-otter-delta-cloud.grok.me" }
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      env:
+        SURFACE_KEY: ${{ inputs.key }}
+        SURFACE_BASE_URL: ${{ inputs.base-url }}
+        PATHS: ${{ inputs.paths }}
+        FAIL_ON_SKIP: ${{ inputs.fail-on-skip }}
+      run: |
+        shopt -s globstar nullglob
+        urls=$(grep -ohE 'https?://[^ )"<>]+' $PATHS | sort -u)
+        bad=0
+        for u in $urls; do
+          auth=(); [ -n "$SURFACE_KEY" ] && auth=(-H "Authorization: Bearer $SURFACE_KEY")
+          r=$(curl -s -A "surface-github-action/1" "${auth[@]}" -G "$SURFACE_BASE_URL/v1/preflight" --data-urlencode "url=$u")
+          n=$(echo "$r" | grep -oE '"next":"[a-z]+"' | cut -d'"' -f4)
+          echo "${n:-error} $u"
+          [ "$n" = "skip" ] && bad=$((bad+1))
+        done
+        echo "skip=$bad"
+        [ "$FAIL_ON_SKIP" = "true" ] && [ $bad -gt 0 ] && exit 1 || exit 0

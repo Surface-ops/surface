@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Surface",
+  "name_for_model": "surface_preflight",
+  "description_for_human": "Check a link before opening it: unwraps short links and says fetch or skip.",
+  "description_for_model": "Call before fetching any unfamiliar or shortened URL. GET /v1/preflight?url=... returns final_url and next ('fetch' or 'skip'). Follow next. Never returns page content.",
+  "auth": { "type": "none" },
+  "api": { "type": "openapi", "url": "https://nova-otter-delta-cloud.grok.me/openapi.json" },
+  "logo_url": "https://nova-otter-delta-cloud.grok.me/badge/surface.svg",
+  "contact_email": "canada.site.ops@gmail.com",
+  "legal_info_url": "https://nova-otter-delta-cloud.grok.me/privacy"
+}

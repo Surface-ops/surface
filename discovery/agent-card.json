@@ -1,0 +1,18 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Surface",
+  "description": "Preflight a URL before an agent opens it: unwraps short links and returns next=fetch or next=skip. Never returns the page body. Free: first 1M requests/month.",
+  "url": "https://nova-otter-delta-cloud.grok.me/mcp",
+  "preferredTransport": "JSONRPC",
+  "provider": { "organization": "Surface (Canada Site Ops)", "url": "https://nova-otter-delta-cloud.grok.me" },
+  "version": "1.0.1",
+  "documentationUrl": "https://nova-otter-delta-cloud.grok.me/docs",
+  "capabilities": { "streaming": false, "pushNotifications": false },
+  "securitySchemes": { "bearer": { "type": "http", "scheme": "bearer", "description": "Optional free key from POST /v1/keys" } },
+  "defaultInputModes": ["application/json", "text/plain"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    { "id": "preflight_url", "name": "Preflight URL", "description": "Unwrap a link and decide fetch or skip.", "tags": ["links","safety","redirects","preflight"], "examples": ["Should I open https://bit.ly/xyz?"] },
+    { "id": "inspect", "name": "Inspect caller", "description": "Classify a caller as bot, browser or script.", "tags": ["bot-detection","user-agent"] }
+  ]
+}
