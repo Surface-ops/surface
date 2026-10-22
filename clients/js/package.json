@@ -1,0 +1,13 @@
+{
+  "name": "surfaceapi",
+  "version": "0.1.0",
+  "description": "Tiny client for Surface: usage-priced infrastructure for machine traffic (preflight, hop, pixel, inspect, MCP).",
+  "main": "index.js",
+  "files": ["index.js", "README.md"],
+  "engines": { "node": ">=18" },
+  "keywords": ["surface", "mcp", "agents", "preflight", "link-check", "pixel", "api"],
+  "author": "Surface / Canada Site Ops <canada.site.ops@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://nova-otter-delta-cloud.grok.me",
+  "repository": { "type": "git", "url": "git+https://github.com/Surface-ops/surface.git", "directory": "clients/js" }
+}

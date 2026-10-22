@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "surfaceapi"
+version = "0.1.0"
+description = "Tiny client for Surface: usage-priced infrastructure for machine traffic (preflight, hop, pixel, inspect, MCP)."
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [{name = "Surface / Canada Site Ops", email = "canada.site.ops@gmail.com"}]
+keywords = ["surface", "mcp", "agents", "preflight", "link-check", "api"]
+[project.urls]
+Homepage = "https://nova-otter-delta-cloud.grok.me"
+Source = "https://github.com/Surface-ops/surface"
