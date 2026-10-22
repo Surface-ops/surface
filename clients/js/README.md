@@ -4,7 +4,7 @@
 
 Tiny clients for [Surface](https://nova-otter-delta-cloud.grok.me): usage-priced infrastructure for machine traffic (preflight, hop, pixel, inspect, MCP, badge). First 1M requests/month free.
 
-- JavaScript: `npm install surfaceapi` ([clients/js](js))
+- JavaScript: `npm install @surfaceapi/surface` ([clients/js](js))
 - Python: `pip install surfaceapi` ([clients/python](python))
 
 ## MCP
@@ -15,7 +15,7 @@ Add Surface to any MCP client:
 
 ## JavaScript
 ```js
-const { Surface } = require('surfaceapi');
+const { Surface } = require( '@surfaceapi/surface');
 const s = new Surface();
 const { key } = await s.createKey();        // free key
 const sk = new Surface({ apiKey: key });

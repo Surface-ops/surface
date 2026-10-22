@@ -1,5 +1,5 @@
 {
-  "name": "surfaceapi",
+  "name": "@surfaceapi/surface",
   "version": "0.1.0",
   "description": "Tiny client for Surface: usage-priced infrastructure for machine traffic (preflight, hop, pixel, inspect, MCP).",
   "main": "index.js",
