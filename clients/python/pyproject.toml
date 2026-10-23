@@ -3,13 +3,13 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 [project]
 name = "surfaceapi"
-version = "0.1.0"
-description = "Tiny client for Surface: usage-priced infrastructure for machine traffic (preflight, hop, pixel, inspect, MCP)."
+version = "0.1.1"
+description = "Check a short link before your agent opens it. Surface client: unwrap t.co/bit.ly/lnkd.in/youtu.be and get fetch or skip. 1M requests/month free."
 readme = "README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [{name = "Surface / Canada Site Ops", email = "canada.site.ops@gmail.com"}]
-keywords = ["surface", "mcp", "agents", "preflight", "link-check", "api"]
+keywords = ["surface", "short-link", "unwrap", "link-check", "preflight", "mcp", "agents"]
 [project.urls]
 Homepage = "https://nova-otter-delta-cloud.grok.me"
 Source = "https://github.com/Surface-ops/surface"

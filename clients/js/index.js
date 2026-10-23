@@ -5,7 +5,7 @@ class Surface {
     this.apiKey = apiKey; this.baseUrl = baseUrl.replace(/\/$/, ''); this.headers = headers;
   }
   async _req(method, path, body) {
-    const h = { 'user-agent': 'surfaceapi-js/0.1.0', ...this.headers };
+    const h = { 'user-agent': 'surfaceapi-js/0.1.1', ...this.headers };
     if (this.apiKey) h.authorization = 'Bearer ' + this.apiKey;
     if (body) h['content-type'] = 'application/json';
     const r = await fetch(this.baseUrl + path, { method, headers: h, body: body ? JSON.stringify(body) : undefined, redirect: 'manual' });

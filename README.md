@@ -1,10 +1,23 @@
-# Surface — preflight a URL before your agent opens it
+# Surface: check a short link before your agent opens it
 
 [![links checked | Surface](https://nova-otter-delta-cloud.grok.me/badge/surface.svg)](https://nova-otter-delta-cloud.grok.me)
 
 [![AllMCPs Verified](https://allmcps.com/api/badge/surface?style=shield)](https://allmcps.com/mcp/surface)
 
-Surface is a remote MCP server and HTTP API. It unwraps short or unknown links (t.co, bit.ly, lnkd.in, youtu.be) and tells your agent whether to open them: `next: "fetch"` or `next: "skip"`. **It never returns the page body.**
+Your agent gets a t.co, bit.ly, lnkd.in or youtu.be link and has no idea where it goes. Surface follows the hops and says **fetch** or **skip**. It never returns the page, so it's one quick round trip. **Free for the first 1,000,000 requests every month, no card needed.**
+
+**[Get started](https://nova-otter-delta-cloud.grok.me/start)** · [Get a free API key (10 seconds)](https://nova-otter-delta-cloud.grok.me/start#key) · [Docs](https://nova-otter-delta-cloud.grok.me/docs) · [Pricing](https://nova-otter-delta-cloud.grok.me/billing) · [Try it in the browser](https://huggingface.co/spaces/surfaceapi/surface-preflight)
+
+| Product | What it does | Price after free tier (per 1k, USD) |
+|---|---|---|
+| Preflight | Unwrap a short link, then say fetch or skip. Also the MCP tool `preflight_url`. | $0.25 |
+| Hop | A tracked redirect link: shorteners, affiliate hops, campaign links. | $0.40 |
+| Pixel | A 1×1 image that email clients, ad servers and page tags load on their own. | $0.15 |
+| Inspect | Tell whether the caller is a bot, a browser or a script. | $0.20 |
+
+Clients: `npm install @surfaceapi/surface` · `pip install surfaceapi`
+
+Under the hood, Surface is a remote MCP server and HTTP API (`next: "fetch"` or `next: "skip"`).
 
 This repo contains:
 

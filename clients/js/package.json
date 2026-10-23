@@ -1,13 +1,31 @@
 {
   "name": "@surfaceapi/surface",
-  "version": "0.1.0",
-  "description": "Tiny client for Surface: usage-priced infrastructure for machine traffic (preflight, hop, pixel, inspect, MCP).",
+  "version": "0.1.1",
+  "description": "Check a short link before your agent opens it. Surface client: unwrap t.co/bit.ly/lnkd.in/youtu.be and get fetch or skip. 1M requests/month free.",
   "main": "index.js",
-  "files": ["index.js", "README.md"],
-  "engines": { "node": ">=18" },
-  "keywords": ["surface", "mcp", "agents", "preflight", "link-check", "pixel", "api"],
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "surface",
+    "short-link",
+    "unwrap",
+    "link-check",
+    "preflight",
+    "mcp",
+    "agents",
+    "redirect"
+  ],
   "author": "Surface / Canada Site Ops <canada.site.ops@gmail.com>",
   "license": "MIT",
   "homepage": "https://nova-otter-delta-cloud.grok.me",
-  "repository": { "type": "git", "url": "git+https://github.com/Surface-ops/surface.git", "directory": "clients/js" }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Surface-ops/surface.git",
+    "directory": "clients/js"
+  }
 }

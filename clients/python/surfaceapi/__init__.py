@@ -1,6 +1,6 @@
 """Tiny client for Surface (https://nova-otter-delta-cloud.grok.me)."""
 import json, urllib.request, urllib.error
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 DEFAULT_BASE = "https://nova-otter-delta-cloud.grok.me"
 
 class _NoRedirect(urllib.request.HTTPRedirectHandler):
